@@ -9,19 +9,15 @@ const Left = () => {
         <div>
           {/* Main Heading */}
           <div className='flex items-center gap-4 mb-6'>
-            <h2 className='text-5xl font-bold text-gray-800 leading-tight'>
+            <h2 className='text-3xl font-bold text-gray-800 leading-tight'>
               Smart Plant
               <span className='block text-green-600'>Care Management</span>
             </h2>
           </div>
           
           {/* Description */}
-          <p className='text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed text-justify'>
-            PlantCare Manager revolutionizes how you care for your plants by providing intelligent tracking, 
-            personalized reminders, and comprehensive plant management tools. Our platform helps you monitor 
-            watering schedules, track growth progress, and maintain optimal plant health through data-driven 
-            insights. Whether you're a beginner gardener or an experienced plant enthusiast, transform your 
-            plant care routine with smart technology that learns and adapts to your plants' unique needs.
+          <p className='text-base sm:text-sm lg:text-lg text-gray-600 leading-relaxed text-justify'>
+            PlantCare Manager makes plant care effortless with smart tracking, personalized reminders, and data-driven insights. Monitor watering schedules, track growth, and keep every plant thriving with technology that adapts to your care routine.
           </p>
 
           {/* Features List */}
@@ -32,9 +28,9 @@ const Left = () => {
               { icon: '🌡️', text: 'Health Monitoring' },
               { icon: '📷', text: 'Photo Gallery & History' }
             ].map((feature, index) => (
-              <div key={index} className='flex items-center gap-3 bg-white/50 rounded-lg p-3'>
-                <span className='text-2xl'>{feature.icon}</span>
-                <span className='text-lg font-medium text-gray-700'>{feature.text}</span>
+              <div key={index} className='flex items-center gap-3 bg-white/50 rounded-lg p-1'>
+                <span className='text-sm'>{feature.icon}</span>
+                <span className='text-normal font-medium text-gray-700'>{feature.text}</span>
               </div>
             ))}
           </div>

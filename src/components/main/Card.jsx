@@ -17,7 +17,7 @@ const Card = (props) => {
 
   return (
     <div
-      className="h-[400px] sm:h-[450px] lg:h-[500px] w-[280px] sm:w-[320px] lg:w-[30%] shrink-0 p-4 sm:p-6 lg:p-8 rounded-3xl lg:rounded-4xl overflow-hidden 
+      className="h-[400px] sm:h-[450px] lg:h-auto w-[280px] sm:w-[320px] lg:w-[30%] shrink-0 p-4 sm:p-6 lg:p-3 rounded-3xl lg:rounded-4xl overflow-hidden 
       bg-cover bg-center flex flex-col justify-between"
       style={{ backgroundImage: `url(${props.img})` }}
     >
@@ -26,7 +26,7 @@ const Card = (props) => {
           {props.id}
         </h3>
 
-        <p className='text-sm sm:text-base lg:text-lg text-gray-900 bg-white/90 backdrop-blur-sm p-3 sm:p-4 rounded-lg text-justify'>
+        <p className='text-sm sm:text-base lg:text-normal text-gray-900 bg-white/90 backdrop-blur-sm p-3 sm:p-4 rounded-lg text-justify'>
           {props.desc}
         </p>
       </div>

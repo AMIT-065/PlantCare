@@ -62,7 +62,7 @@ const PlantCard = ({ plant, onDelete, onUpdate, onWater }) => {
     <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-green-100 animate-fade-in">
       
       {/* Plant Image Section with Fallback UI */}
-      <div className="h-100 bg-gray-200 relative">
+      <div className="h-80 bg-gray-200 relative">
         {plant.image ? (
           // Display plant image if available
           <img 

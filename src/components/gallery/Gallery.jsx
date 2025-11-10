@@ -2,7 +2,7 @@
  * Gallery.jsx - PlantCare Manager Gallery Component
  * 
  * Visual gallery for displaying plant growth timelines and photos.
- * Features grid/list view modes, image carousel, and plant details modal.
+ * Features list view mode, image carousel, and plant details modal.
  * 
  * @author Amit Ingle
  * @component
@@ -11,11 +11,10 @@
  */
 
 import React, { useState } from 'react';
-import { Grid, List, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { List , X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Gallery = ({ plants }) => {
-  // State management for view preferences and modal interactions
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list' view mode
+
   const [selectedPlant, setSelectedPlant] = useState(null); // Currently selected plant for modal
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Current image in carousel
 
@@ -61,61 +60,8 @@ const Gallery = ({ plants }) => {
       {/* Gallery Header with View Mode Toggle */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Plant Gallery</h1>
-        {/* View Mode Toggle Buttons */}
-        <div className="flex gap-3 bg-gray-100 rounded-lg p-2">
-          <button
-            onClick={() => setViewMode('grid')}
-            className={`p-3 rounded-lg transition-all ${
-              viewMode === 'grid' ? 'bg-white shadow' : 'hover:bg-gray-200'
-            }`}
-            aria-label="Grid view"
-          >
-            <Grid className="w-6 h-6" />
-          </button>
-          <button
-            onClick={() => setViewMode('list')}
-            className={`p-3 rounded-lg transition-all ${
-              viewMode === 'list' ? 'bg-white shadow' : 'hover:bg-gray-200'
-            }`}
-            aria-label="List view"
-          >
-            <List className="w-6 h-6" />
-          </button>
-        </div>
       </div>
-
-      {/* Conditional Rendering: Grid View */}
-      {viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {plantsWithPhotos.map(plant => (
-            <div
-              key={plant.id}
-              className="bg-white rounded-xl shadow-sm border cursor-pointer hover:shadow-lg transition-all duration-300"
-              onClick={() => {
-                setSelectedPlant(plant);
-                setCurrentImageIndex(0);
-              }}
-              role="button"
-              tabIndex={0}
-              onKeyPress={(e) => e.key === 'Enter' && setSelectedPlant(plant)}
-            >
-              <img 
-                src={plant.photos[2]} 
-                alt={plant.name}
-                className="w-full h-80 rounded-t-xl"
-                loading="lazy" // Lazy loading for performance
-              />
-              <div className="p-5">
-                <h3 className="font-semibold text-gray-800 text-xl">{plant.name}</h3>
-                <p className="text-green-600 text-base">{plant.type}</p>
-                <p className="text-gray-500 text-sm mt-2">{plant.photos.length} photos</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        /* Conditional Rendering: List View */
-        <div className="space-y-4">
+      <div className="space-y-4">
           {plantsWithPhotos.map(plant => (
             <div
               key={plant.id}
@@ -144,7 +90,8 @@ const Gallery = ({ plants }) => {
             </div>
           ))}
         </div>
-      )}
+
+      
 
       {/* Empty State - Shows when no plants available */}
       {plants.length === 0 && (
@@ -157,7 +104,7 @@ const Gallery = ({ plants }) => {
       {/* Plant Detail Modal - Shows when a plant is selected */}
       {selectedPlant && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-6 z-50">
-          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+          <div className="bg-white rounded-xl max-w-4xl lg:w-[40%] w-[90%] max-h-[90vh] overflow-hidden">
             
             {/* Modal Header */}
             <div className="flex justify-between items-center p-6 border-b">
@@ -177,7 +124,7 @@ const Gallery = ({ plants }) => {
               <img 
                 src={selectedPlant.photos[currentImageIndex]} 
                 alt={selectedPlant.name}
-                className="w-full h-100 lg:h-96 "
+                className="w-full h-50 lg:h-70 "
               />
               
               {/* Navigation Arrows - Only show if multiple photos exist */}
@@ -206,29 +153,6 @@ const Gallery = ({ plants }) => {
               </div>
             </div>
 
-            {/* Thumbnail Strip - Image navigation */}
-            {selectedPlant.photos.length > 1 && (
-              <div className="p-6 flex gap-4 overflow-x-auto">
-                {selectedPlant.photos.map((photo, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`flex-0 w-20 h-20 rounded-lg border-2 transition-all ${
-                      currentImageIndex === index 
-                        ? 'border-green-500 ring-2 ring-green-200'  // Active state
-                        : 'border-gray-300 hover:border-green-300'  // Inactive state
-                    }`}
-                    aria-label={`View image ${index + 1}`}
-                  >
-                    <img 
-                      src={photo} 
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover rounded"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
 
             {/* Plant Information Section */}
             <div className="p-6 border-t">
