@@ -1,16 +1,24 @@
-# React + Vite
+🌿 PlantCare Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based plant tracking app to manage watering schedules and plant health.
 
-Currently, two official plugins are available:
+🚀 Live
+🔗 amit-065.github.io/PlantCare
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ Features
+📊 Dashboard - Overview stats + plants needing water today
 
-## React Compiler
+🌱 Plant Manager - Add/edit/delete plants with search & filter
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🖼️ Gallery - List view with image carousel modal
 
-## Expanding the ESLint configuration
+💾 Auto-save - localStorage persistence
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠️ Tech Stack
+React (hooks: useState, useEffect)
+
+Tailwind CSS (responsive design)
+
+LocalStorage (data persistence)
+
+GitHub Pages (hosting)
